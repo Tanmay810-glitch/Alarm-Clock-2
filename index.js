@@ -1,6 +1,6 @@
 //Function for displaying display-time
 var currTime = document.getElementById("current-time");
-console.log(currTime)
+console.log(currTime);
 function currentTime() {
     let date = new Date();
     let hh = date.getHours();
@@ -16,7 +16,7 @@ function currentTime() {
     currTime.innerText = time;
     let t = setTimeout(function(){
         currentTime()
-        if(alarm_list.includes(time)){
+        if(alarm_List.includes(time)){
             ringing(time);
         }
     }, 1000);
@@ -28,7 +28,15 @@ function, will put '0' before that digit.
 
 If 9, then 09, and so on.
 */
-let alarm_list = [];
+function formatTime(time) {
+    if(time < 10 && time.length != 2){
+        return "0" + time;
+    }
+}
+const myList = document.querySelector(".user-input");
+
+//Adding alarm from user input
+let alarm_List = [];
 const userInput = document.querySelector(".user-input")
 userInput.addEventListener("submit", function(e){
     e.preventDefault();
@@ -51,14 +59,14 @@ userInput.addEventListener("submit", function(e){
         new_s = "00";
     }
 
-const new_alarm = `${new_h}:${new_m}:${new_s}`;
-if(isNaN(new_alarm)) {
-    if(!alarm_list.includes(new_Alarm)) {
-        alarm_list.push(new_alarm);
-        shownew_Alarm(new_Alarm)
+const new_Alarm = `${new_h}:${new_m}:${new_s}`;
+if(isNaN(new_Alarm)) {
+    if(!alarm_List.includes(new_Alarm)) {
+        alarm_List.push(new_Alarm);
+        shownew_Alarm(new_Alarm);
         addAlarm.reset();
     } else {
-        alert(`Alarm for ${new_Alarm} alreadt set.`);
+        alert(`Alarm for ${new_Alarm} already set.`);
     }
 } else {
     alert("Invalid time entered.")
@@ -70,9 +78,9 @@ add the new alarm in the list with delete button*/
 function shownew_Alarm(new_Alarm){
     const html =`
     <li class="time-list">
-    <span class="line">${new_Alarm}</span>
-    <button class="deleteAlarm line-control" id="delete-button" 
-    onclick="remove{this.value}" value=${new_Alarm}></button>
+        <span class="line">${new_Alarm}</span>
+        <button class="deleteAlarm time-control" id="delete-button" 
+        onclick="remove{this.value}" value=${new_Alarm}></button>
     </li>`;
     myList.innerHTML += html;
 }
@@ -94,13 +102,13 @@ function ringing(time){
 const clearAlarm = () => {
     audio.pause();
     clearTimeout(alarmTimeout);
-    alert("Alarm cleared")
-}
+    alert("Alarm cleared");
+};
 
 //Function for stopping the alarm
 const mylist = document.getElementsByClassName("set-alarms-list");
 myList.addEventListener("click", (e) => {
-    if(e.target.classlist.contains("deleteAlarm")){
+    if(e.target.classList.contains("deleteAlarm")){
         e.target.parentElement.remove();
     }
 });
@@ -108,7 +116,7 @@ myList.addEventListener("click", (e) => {
 /*Removing the Alarm from the ArrayList, when the ("Delete Alarm") 
 Button is clicked*/
 const remove = (value) => {
-    let newlist = alarm_list.filter((time) => time != value);
-    alarm_list.length = 0; //Clears the contents
-    alarm_list.push.apply(alarm_list, newlist);
+    let newList = alarm_List.filter((time) => time != value);
+    alarm_List.length = 0; //Clears the contents
+    alarm_List.push.apply(alarm_List, newList);
 };
