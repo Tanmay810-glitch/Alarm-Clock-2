@@ -5,68 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script  type="module" src="js/index.js" defer></script>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <link rel="stylesheet" href="css/musicPlayer.css">
 </head>
 <body>
-    <div class="container"> 
-        <div class="imageSlides fade">
-            <img id="trees" src="images/image1.webp" alt="Forest1">
-        </div>
-        <div class="imageSlides fade">
-            <img id="trees" src="images/image2.webp" alt="Forest1">
-        </div>
-        <div class="imageSlides fade">
-            <img id="trees" src="images/image3.jpg" alt="Forest1">
-        </div>
-        <div class="imageSlides fade">
-            <img id="trees" src="images/image4.jpg" alt="Forest1">
-        </div>
-        <div class="imageSlides fade">
-            <img id="trees" src="images/image5.jpg" alt="Forest1">
-        </div>
-        <div class="imageSlides fade">
-            <img id="trees" src="images/image6.jpg" alt="Forest1">
-        </div>
-        <div class="clock">
-            <div id="title" class="header">
-                <h2>Clock</h2>
-            </div>
 
-            <div id="current-time"></div>
+    <div class="container">
+        <div class="header">
+            <h1>Alarm Clock</h1>
         </div>
-        <div class="btns">
-            <button id="next" class="slider-btn previous" onclick="setSlides(-1)">Next</button>
-            <button id="prev" class="slider-btn next" onclick="setSlides(1)">Prev</button>
-        </div>
-        <div class="player">
-            <div class="details">
-              <div class="now-playing">PLAYING x OF y</div>
-              <div class="track-art"></div>
-              <div class="track-name">Track Name</div>
-              <div class="track-artist">Track Artist</div>
-            </div>
-            <div class="buttons">
-              <div class="prev-track" onclick="prevTrack()"><i class="fa fa-step-backward fa-2x"></i></div>
-              <div class="playpause-track" onclick="playpauseTrack()"><i class="fa fa-play-circle fa-5x"></i></div>
-              <div class="next-track" onclick="nextTrack()"><i class="fa fa-step-forward fa-2x"></i></div>
-            </div>
-            <div class="slider_container">
-              <div class="current-time">00:00</div>
-              <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
-              <div class="total-duration">00:00</div>
-            </div>
-            <div class="slider_container">
-              <i class="fa fa-volume-down"></i>
-              <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
-              <i class="fa fa-volume-up"></i>
-            </div>
-          </div>
-        </div>
+    <div id="current-time"></div>
+    <h1>Set Alarm (24-Hour Clock)</h1>
+    <form class="user-input">
+        <input type="number" id = "hour" max = "23" min = "00" placeholder="HH"/>
+        <input type="number" id = "min" max = "59" min = "00" placeholder="MM"/>
+        <input type="number" id = "sec" max = "59" min = "00" placeholder="SS"/>
+        <br />
+        <button type="submit">Set Alarm</button>
+        <button type="reset" onclick="clearAlarm()">Stop Alarm</button>
+    </form>
+    <hr />
+
+    <h2>Upcoming Alarms</h2>
+        <ul class="set-alarms-list">
+            <li></li>
+        </ul>
     </div>
 </body>
-
+<script src = "index.js"></script>
 </html>
 
