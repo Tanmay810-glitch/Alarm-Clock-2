@@ -1,9 +1,9 @@
-.Music_Player {
+/*.Music_Player {
     background-color: lightgreen;
    
-    /* Smoothly transition the background color */
+    /* Smoothly transition the background color 
     transition: background-color .5s;
-  }
+  }*/
    
   /* Using flex with the column direction to
      align items in a vertical direction */
@@ -91,8 +91,6 @@
    
   /* Modify the appearance of the slider */
   .seek_slider, .volume_slider {
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     height: 5px;
     opacity: 0.7;
@@ -103,8 +101,6 @@
   /* Modify the appearance of the slider thumb */
   .seek_slider::-webkit-slider-thumb,
   .volume_slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     width: 15px;
     height: 15px;

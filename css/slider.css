@@ -1,3 +1,4 @@
+/*
 .imageSlides {
     display: none
   }
@@ -6,16 +7,17 @@
     margin: auto;
     display: block;
     width: 100%;
+    z-index: -1;
   }
    
-  /* Our main images-slideshow container */
+   /*Our main images-slideshow container 
   .images-slideshow {
     max-width: 612px;
     position: relative;
     margin: auto;
   }
    
-  /*Style for ">" next and "<" previous buttons */
+  /*Style for ">" next and "<" previous buttons 
   .slider-btn{
     cursor: pointer;
     position: absolute;
@@ -33,18 +35,19 @@
     border-radius: 50%;
   }
    
-  /* setting the position of the previous button towards left */
+  /* setting the position of the previous button towards left 
   .previous {
     left: 2%;
   }
-   /* setting the position of the next button towards right */
+   /* setting the position of the next button towards right 
   .next {
     right: 2%;
   }
    
-  /* On hover, adding a background color */
+  /* On hover, adding a background color 
   .previous:hover,
   .next:hover {
     color: rgb(255, 253, 253);
     background-color: rgba(0, 0, 0, 0.8);
   }
+  
